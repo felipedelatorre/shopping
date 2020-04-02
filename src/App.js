@@ -1,21 +1,19 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-const Welcome = () => (
-  <div>
-    <h1 className="text-purple-500">Welcome!!</h1>
-    <h1 className="text-purple-500">You can start here</h1>
+import Home from './Home/Home';
+import Header from './Header/Header';
+import Nav from './Nav/Nav';
+
+const App = () => (
+  <div className="w-3/4 m-auto border ">
+    <Header />
+    <Nav />
+    <Switch>
+      <Route exact path="/" component={Home} />
+      {/* <Route path="/sell" ></Route> */}
+    </Switch>
   </div>
 );
-
-function App() {
-  return (
-    <>
-      <Switch>
-        <Route exact path="/" component={Welcome} />
-      </Switch>
-    </>
-  );
-}
 
 export default App;
