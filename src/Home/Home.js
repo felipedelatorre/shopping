@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-const Home = () => (
+const Home = ({ user }) => (
   <div>
-    <h1 className="text-purple-500">Welcome!!</h1>
-    <h1 className="text-purple-500">You can start here</h1>
+    <h1 className="text-purple-500">Welcome!! {user}</h1>
     <div className="border scrolling-wrapper">
       <div className="card">
         <img src="https://via.placeholder.com/150" />
