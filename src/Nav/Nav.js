@@ -1,30 +1,24 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { withRouter } from 'react-router';
-import { UsersContext } from '../Context';
 
-const Nav = () => {
-  const usersContext = useContext(UsersContext);
-  const { logOut } = usersContext;
-
-  const handleLogOut = () => {
-    logOut();
-  };
-
-  return (
-    <div>
-      <div>
-        <a href="/">Home</a>
-      </div>
-      <div>
-        <a href="/SignUp">Sign Up</a>
-      </div>
-      <div>
-        <button type="button" onClick={handleLogOut}>
-          Log out
-        </button>
-      </div>
+const Nav = () => (
+  <div className="flex row justify-between border">
+    <div className="text-sm pl-2">
+      <a href="/">Home</a>
     </div>
-  );
-};
+    <div className="text-sm">
+      <a href="#">Fashion</a>
+    </div>
+    <div className="text-sm">
+      <a href="#">Electronics</a>
+    </div>
+    <div className="text-sm">
+      <a href="#">Home</a>
+    </div>
+    <div className="text-sm pr-2">
+      <a href="#">Food</a>
+    </div>
+  </div>
+);
 
 export default withRouter(Nav);
