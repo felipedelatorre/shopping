@@ -10,14 +10,14 @@ const TopNav = ({ user, logOut }) => {
   if (user) {
     return (
       <div className="flex row justify-between pt-2 pb-4">
-        <div className="flex row border">
-          <div className="text-xs">Welcome {user}</div>
+        <div className="flex row">
+          <div className="ml-2 text-xs">Welcome {user}</div>
         </div>
-        <div className="flex row border">
+        <div className="flex row">
           <div className="pr-5 text-xs">
             <a href="/SignUp">Sell</a>
           </div>
-          <div className="pr-5 text-xs">
+          <div className="mr-2 pr-5 text-xs">
             <a href="/SignUp">My Account</a>
           </div>
           <div className="text-xs">
@@ -31,21 +31,17 @@ const TopNav = ({ user, logOut }) => {
   }
   return (
     <div className="flex row justify-between pt-2 pb-4">
-      <div className="flex row border">
-        <div className="pr-5 text-xs">
-          <a href="/SignIn">Sign In</a>
+      <div className="flex row">
+        <div className="ml-2 pr-5 text-xs">
+          <a href="/LogIn">Log In</a>
         </div>
         <div className="text-xs">
           <a href="/SignUp">Sign Up</a>
         </div>
       </div>
-      <div className="flex row border">
-        <div className="pr-5 text-xs">
-          <a href="#">Sell</a>
-        </div>
-        <div className="text-xs">
-          <a href="#">My Account</a>
-        </div>
+      <div className="flex row">
+        <div className="pr-5 text-xs">Sell</div>
+        <div className="mr-2 text-xs">My Account</div>
       </div>
     </div>
   );
