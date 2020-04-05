@@ -1,38 +1,31 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const Home = ({ user }) => (
+import TopNav from '../TopNav/TopNav';
+import Header from '../Header/Header';
+import Nav from '../Nav/Nav';
+import MainContent from '../MainContent/MainContent';
+import NoMatch from '../NoMatch/NoMatch';
+
+const Browse = () => <h1>Browse Content</h1>;
+
+const Home = ({ user, logOut }) => (
   <div>
-    <h1 className="text-purple-500">Welcome!! {user}</h1>
-    <div className="border scrolling-wrapper">
-      <div className="card">
-        <img alt="" src="https://via.placeholder.com/150" />
-      </div>
-      <div className="card">
-        <img alt="" src="https://via.placeholder.com/150" />
-      </div>
-      <div className="card">
-        <img alt="" src="https://via.placeholder.com/150" />
-      </div>
-      <div className="card">
-        <img alt="" src="https://via.placeholder.com/150" />
-      </div>
-      <div className="card">
-        <img alt="" src="https://via.placeholder.com/150" />
-      </div>
-      <div className="card">
-        <img alt="" src="https://via.placeholder.com/150" />
-      </div>
-      <div className="card">
-        <img alt="" src="https://via.placeholder.com/150" />
-      </div>
-      <div className="card">
-        <img alt="" src="https://via.placeholder.com/150" />
-      </div>
-      <div className="card">
-        <img alt="" src="https://via.placeholder.com/150" />
-      </div>
-    </div>
+    <TopNav user={user} logOut={logOut} />
+    <Header />
+    <Nav />
+    <Switch>
+      <Route exact path="/" component={MainContent} />
+      <Route path="/Browse" component={Browse} />
+      <Route component={NoMatch} />
+    </Switch>
   </div>
 );
 
 export default Home;
+
+Home.propTypes = {
+  user: PropTypes.object,
+  logOut: PropTypes.func,
+};
