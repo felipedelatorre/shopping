@@ -6,7 +6,7 @@ const Nav = () => (
     <div className="text-sm pl-2">
       <a href="/">Home</a>
     </div>
-    <div className="text-sm">
+    {/* <div className="text-sm">
       <a href="#">Fashion</a>
     </div>
     <div className="text-sm">
@@ -17,7 +17,7 @@ const Nav = () => (
     </div>
     <div className="text-sm pr-2">
       <a href="#">Food</a>
-    </div>
+    </div> */}
   </div>
 );
 

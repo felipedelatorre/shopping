@@ -1,34 +1,34 @@
 import React, { createContext, useState, useEffect } from 'react';
+import { useOktaAuth } from '@okta/okta-react';
 import PropTypes from 'prop-types';
 
 export const Context = createContext({});
 
 export const Provider = ({ children }) => {
-  const [user, setUser] = useState();
+  const { authState, authService } = useOktaAuth();
+  const [userInfo, setUserInfo] = useState(null);
 
   useEffect(() => {
-    const getUserData = () => {
-      const userName = localStorage.getItem('userName') || null;
-      setUser(userName);
-    };
+    if (!authState.isAuthenticated) {
+      // When user isn't authenticated, forget any user info
+      setUserInfo(null);
+    } else {
+      authService.getUser().then(info => {
+        setUserInfo(info);
+      });
+    }
+  }, [authState, authService]); // Update if authState changes
 
-    getUserData();
-  });
-
-  const logIn = ({ userName }) => {
-    localStorage.setItem('userName', userName);
-    setUser(userName);
+  const logIn = () => {
+    authService.login();
   };
 
-  const getUser = () => user;
-
   const logOut = () => {
-    localStorage.clear();
-    setUser(null);
+    authService.logout();
   };
 
   const usersContext = {
-    getUser,
+    userInfo,
     logIn,
     logOut,
   };
