@@ -10,9 +10,9 @@ import NoMatch from '../NoMatch/NoMatch';
 
 const Browse = () => <h1>Browse Content</h1>;
 
-const Home = ({ user, logOut }) => (
+const Home = ({ logIn, userInfo, logOut }) => (
   <div>
-    <TopNav user={user} logOut={logOut} />
+    <TopNav userInfo={userInfo} logOut={logOut} logIn={logIn} />
     <Header />
     <Nav />
     <Switch>
@@ -28,4 +28,5 @@ export default Home;
 Home.propTypes = {
   user: PropTypes.object,
   logOut: PropTypes.func,
+  logIn: PropTypes.func,
 };

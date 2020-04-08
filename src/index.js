@@ -2,17 +2,29 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/main.css';
 import { BrowserRouter } from 'react-router-dom';
+import { AuthService, Security } from '@okta/okta-react';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { UsersContextProvider } from './Context';
 
+const { REACT_APP_OKTA_ORG_URL, REACT_APP_OKTA_CLIENT_ID } = process.env;
+
+const authService = new AuthService({
+  issuer: `${REACT_APP_OKTA_ORG_URL}/oauth2/default`,
+  clientId: REACT_APP_OKTA_CLIENT_ID,
+  pkce: true,
+  redirectUri: `${window.location.origin}/implicit/callback`,
+});
+
 ReactDOM.render(
   <React.StrictMode>
-    <UsersContextProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </UsersContextProvider>
+    <Security authService={authService}>
+      <UsersContextProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </UsersContextProvider>
+    </Security>
   </React.StrictMode>,
   document.getElementById('root')
 );
