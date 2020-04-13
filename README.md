@@ -1,6 +1,6 @@
 # Shopping-Cat
 
-## Authorization Setup
+## Deploy Setup
 
 This is needed to see authorization in the app. It is not required as the app allows not-authorized users to browse.
 Shopping Cat authorization is handle by Okta. You first will have to create an organization with them. Get the Okta Organization URL and the Client ID.
@@ -20,9 +20,10 @@ Shopping Cat authorization is handle by Okta. You first will have to create an o
 ### Links
 
 [Trello Board](https://trello.com/b/fQAVhsvi/shopping-cat)
+
 [Staging App](https://shopping-cat-staging.herokuapp.com/)
 
-Includes setup for:
+## Dev setup:
 
 - [No-Sweat™](#Acknowledgements) Eslint and Prettier Setup
 - [TailwindCSS](https://tailwindcss.com/)
@@ -32,26 +33,6 @@ Includes setup for:
 
 - [ESlint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
-
-## Instructions
-
-1. Fork Repo
-
-2. Clone new forked repo
-
-```
-git clone <newForkedRepoURL>
-```
-
-3. Change project name in `package.json` and `package-lock.json`
-
-4. Install dependencies
-
-```
-npm install
-```
-
-5. You might have to restart VS Code for ESlint and Prettier to start working
 
 ## VS Code Configs
 
