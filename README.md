@@ -1,4 +1,26 @@
-# Template for React Projects
+# Shopping-Cat
+
+## Authorization Setup
+
+This is needed to see authorization in the app. It is not required as the app allows not-authorized users to browse.
+Shopping Cat authorization is handle by Okta. You first will have to create an organization with them. Get the Okta Organization URL and the Client ID.
+
+## Getting Started
+
+1. `git clone`
+2. `npm install`
+3. `touch .env.local`
+   - add
+   ```
+   REACT_APP_OKTA_ORG_URL=<Okta Organization URL>
+   REACT_APP_OKTA_CLIENT_ID=<Client ID>
+   ```
+4. `npm start`
+
+### Links
+
+[Trello Board](https://trello.com/b/fQAVhsvi/shopping-cat)
+[Staging App](https://shopping-cat-staging.herokuapp.com/)
 
 Includes setup for:
 
